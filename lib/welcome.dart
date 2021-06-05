@@ -17,7 +17,9 @@ class _HomeState extends State<Welcome> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: GestureDetector(onTap: (){},
+        child: GestureDetector(onTap: (){
+          
+        },
             child: Container(
           height: 100,
           child: Image.network(
