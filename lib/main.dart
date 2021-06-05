@@ -1,3 +1,4 @@
+import 'package:dailydiary/trial.dart';
 import 'package:dailydiary/welcome.dart';
 import 'package:flutter/material.dart';
 
