@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dailydiary/provider1.dart';
 import 'package:dailydiary/trial.dart';
 import 'package:dailydiary/trial2.dart';
@@ -5,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:provider/provider.dart';
+final fire=FirebaseFirestore.instance;
+
 
 bool issignedin = false;
 final GoogleSignIn googleSignIn = GoogleSignIn();
@@ -36,17 +39,17 @@ class _HomeState extends State<Welcome> {
           Padding(
             padding: const EdgeInsets.all(28.0),
             child: GestureDetector(
-              onTap: () {
-                setState(() async {
-                  await login();
-                  issignedin = true;
-                  if (await googleSignIn.isSignedIn()) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return Trial();
-                    }));
-                  }
-                });
+              onTap: ()async {
+                await Provider.of<Provider1>(context, listen: false).login1();
+                if (await Provider.of<Provider1>(context, listen: false)
+                    .googleSignIn1
+                    .isSignedIn()) { print('//////////');
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) {
+                        return Trial();
+
+                      }));
+                }
               },
               child: welcomescreenbuttons(
                 text: 'login',
@@ -58,6 +61,7 @@ class _HomeState extends State<Welcome> {
             padding: const EdgeInsets.all(28.0),
             child: GestureDetector(
                 onTap: () {
+
                   googleSignIn.signOut();
                 },
                 child: welcomescreenbuttons(
