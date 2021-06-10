@@ -2,11 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swipable/flutter_swipable.dart';
 
-final List data = [
-  {'color': Colors.red},
-  {'color': Colors.green},
-  {'color': Colors.blue},
-];
+
 
 class Tinder extends StatefulWidget {
   @override
@@ -15,17 +11,24 @@ class Tinder extends StatefulWidget {
 
 class _TinderState extends State<Tinder> {
   List<Card> cards = [
-    Card(color: data[0]['color'],),
-    Card(color: data[1]['color'],),
-    Card(color: data[2]['color'],),
+    Card(color:Colors.purple),
+    Card(color: Colors.orange),
+    Card(color: Colors.yellow,),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-    child: Stack(
-      children: cards,
-    ),
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(38.0),
+        child: Container(
+          width: MediaQuery.of(context).size.width*1,height: MediaQuery.of(context).size.height/1.2,
+
+          child: Stack(
+          children: cards,
+        ),
+        ),
+      ),
     );
   }
 }
@@ -37,8 +40,7 @@ class Card extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Swipable(
-        child: Container(width: MediaQuery.of(context).size.width*0.2,height: MediaQuery.of(context).size.height/3,
-
+        child: Container(
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(16),color: color),
     ));
   }
