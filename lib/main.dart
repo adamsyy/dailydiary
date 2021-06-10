@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(create: (context)=>Provider1(),
       child: MaterialApp(debugShowCheckedModeBanner: false,
-home: Tinder(),
+home: Trial(),
       ),
     );
   }
