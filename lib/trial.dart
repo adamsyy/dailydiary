@@ -82,7 +82,7 @@ class _TrialState extends State<Trial> {
               },
               child: Text('hloo')),
         ],
-      ),
+      )
     );
   }
 }
