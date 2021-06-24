@@ -1,3 +1,5 @@
+import 'package:dailydiary/adduser.dart';
+import 'package:dailydiary/getusername.dart';
 import 'package:dailydiary/provider1.dart';
 import 'package:dailydiary/trial2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -50,12 +52,10 @@ class _TrialState extends State<Trial> {
             ),
           ),
           ElevatedButton(
-              onPressed: () {
-                fire.collection('user').doc('user1').set({
-                  "kilo": "23",
-                });
-              },
-              child: Text('clcij here')),
+            onPressed: (){
+
+            },
+              child: Text('fire')),
           ElevatedButton(onPressed: loaddata, child: Text('clcij here')),
           ElevatedButton(
               onPressed: () {
