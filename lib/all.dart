@@ -6,7 +6,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 var _controller = TextEditingController();
 var va;
 TextEditingController textEditingController=TextEditingController();
-CollectionReference collectionReference=FirebaseFirestore.instance.collection('products');
+CollectionReference collectionReference=FirebaseFirestore.instance.collection('users');
 late Future<QuerySnapshot> futuresearch;
 
 
@@ -30,10 +30,13 @@ class _AllState extends State<All> {
             RaisedButton(child: Text('add data'),onPressed:adddata('sreejith'),),
             RaisedButton(child: Text('update data'),onPressed:updatedata,),
             RaisedButton(child: Text('delete data'),onPressed:deletedata,),
-            TextField(controller: textEditingController,onSubmitted: (value)async{
+            TextField(controller: textEditingController,onChanged: (value)async{
               va=value;
-              var boi=await collectionReference.where('peru',isGreaterThanOrEqualTo: va).snapshots();
-              print(boi);
+              var boi=await collectionReference.where('peru',isGreaterThanOrEqualTo: va).get();
+                  for(var doc in boi.docs){
+                    print(doc.data());
+                  }
+
             },),
             SizedBox(height: 100,),
             Text('data will be shown here'),
