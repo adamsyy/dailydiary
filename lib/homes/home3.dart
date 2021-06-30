@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dailydiary/bottom.dart';
 import 'package:dailydiary/products/details_content.dart';
 import 'package:dailydiary/testerr/welcome.dart';
@@ -15,6 +16,7 @@ import '../main.dart';
 import '../products/details.dart';
 import '../apis/api_manager.dart';
 
+FirebaseFirestore fire=FirebaseFirestore.instance;
 var i=0;
 var currentIndex = 0;
 List<IconData> listOfIcons = [
@@ -98,14 +100,19 @@ class _Home1State extends State<Home3> {
             ),
           ),
           cardController: controller = CardController(),
-          swipeUpdateCallback: (DragUpdateDetails details, Alignment align) {
+          swipeUpdateCallback: (DragUpdateDetails detailss, Alignment align) {
             /// Get swiping card's alignment
             if (align.x < 0) {
               print('lefttt');
-              if(i==7){i=0;}
+              fire.collection('cart').add({
+                'name':details.nightdetails[i].name,
+              });
+
             } else if (align.x > 0) {
               print('right');
-              if(i==7){i=0;}
+              fire.collection('cart').add({
+                'name':details.nightdetails[i].name,
+              });
             }
           },
           swipeCompleteCallback:
