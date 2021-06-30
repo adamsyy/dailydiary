@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:dailydiary/model.dart';
+import 'package:dailydiary/apis/model.dart';
 import 'package:http/http.dart' as http;
 
 // ignore: camel_case_types

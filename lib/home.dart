@@ -1,15 +1,16 @@
 import 'dart:convert';
-
-import 'package:dailydiary/baseclient.dart';
-import 'package:dailydiary/model.dart';
+import 'package:get/get.dart';
+import 'package:dailydiary/apis/baseclient.dart';
+import 'package:dailydiary/apis/model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'package:http/http.dart';
-import 'details.dart';
-import 'api_manager.dart';
+import 'products/details.dart';
+import 'apis/api_manager.dart';
 var i=0;
 
 final url = 'https://recipesapi.herokuapp.com/api/v2/categories';
+
 
 
 CardController controller=new CardController();
@@ -59,8 +60,6 @@ child: SingleChildScrollView(scrollDirection: Axis.vertical,
 
   children:[  Center(child: Image.network(snapshot.data!.categories[index].imageUrl)),
 
-
-
   Text(snapshot.data!.categories[index].title,style: TextStyle(fontSize: 27,fontWeight: FontWeight.w900),),
 
 
@@ -83,7 +82,7 @@ swipeCompleteCallback:
 (CardSwipeOrientation orientation, int index) {
 /// Get orientation & index of swiped card!
 },
-);
+        );
 
       }
       return Center(child: CircularProgressIndicator( strokeWidth: 20,));
@@ -99,9 +98,9 @@ swipeCompleteCallback:
 
       floatingActionButton: FloatingActionButton(
         child: Text('api'),onPressed: (){
-         setState(() {
 
-         });
+         Get.to(Home1());
+
       },
       ),
     );

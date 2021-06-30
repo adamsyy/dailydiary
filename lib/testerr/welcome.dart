@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dailydiary/testerr/provider1.dart';
+import 'package:dailydiary/provider1.dart';
 import 'package:dailydiary/testerr/trial.dart';
 import 'package:dailydiary/testerr/trial2.dart';
 import 'package:flutter/material.dart';

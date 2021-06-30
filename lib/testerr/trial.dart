@@ -1,6 +1,6 @@
 import 'package:dailydiary/testerr/adduser.dart';
 import 'package:dailydiary/testerr/getusername.dart';
-import 'package:dailydiary/testerr/provider1.dart';
+import 'package:dailydiary/provider1.dart';
 import 'package:dailydiary/testerr/trial2.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

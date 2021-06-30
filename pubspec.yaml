@@ -37,6 +37,7 @@ dependencies:
   flutter_swipable: ^0.1.1
   http: ^0.13.3
   flutter_tindercard: ^0.2.0
+  get:
 
 dev_dependencies:
   flutter_test:
