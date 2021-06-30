@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:dailydiary/products/details_content.dart';
 import 'package:get/get.dart';
 import 'package:dailydiary/apis/baseclient.dart';
 import 'package:dailydiary/apis/model.dart';
@@ -10,7 +11,7 @@ import 'apis/api_manager.dart';
 var i=0;
 
 final url = 'https://recipesapi.herokuapp.com/api/v2/categories';
-
+Detailscontent details=Detailscontent();
 
 
 CardController controller=new CardController();
@@ -98,9 +99,8 @@ swipeCompleteCallback:
 
       floatingActionButton: FloatingActionButton(
         child: Text('api'),onPressed: (){
-
          Get.to(Home1());
-
+       print(details.lunchdetails[1].price);
       },
       ),
     );
