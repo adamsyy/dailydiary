@@ -7,7 +7,7 @@ class Provider1 with ChangeNotifier{
   int a=3;
 
 late String displayperu='jfn';
-
+late String displaypic="dd";
 late String tofire;
 
   bool issignedin1 = false;
@@ -19,7 +19,9 @@ late String tofire;
       issignedin1 = true;
       var currentuser=googleSignIn1.currentUser;
       if(currentuser!=null)
-      {displayperu=currentuser.displayName!;}
+      {displayperu=currentuser.displayName!;
+      displaypic=currentuser.photoUrl!;
+      }
       notifyListeners();
 
   }

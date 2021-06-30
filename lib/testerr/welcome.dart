@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dailydiary/main.dart';
 import 'package:dailydiary/provider1.dart';
 import 'package:dailydiary/testerr/trial.dart';
 import 'package:dailydiary/testerr/trial2.dart';
+import 'package:dailydiary/welcomes/welcome3.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -34,8 +36,9 @@ class _HomeState extends State<Welcome> {
         children: [
           Image.network(
             'https://www.99images.com/photos/wallpapers/3d-abstract/minimalist-black-phoneandroid-iphone-desktop-hd-backgrounds-wallpapers-1080p-4k-je1ci.jpg?v=1615228089',
-            height: MediaQuery.of(context).size.height / 1.5,
+            height: MediaQuery.of(context).size.height / 2.7,
           ),
+
           Padding(
             padding: const EdgeInsets.all(28.0),
             child: GestureDetector(
@@ -46,7 +49,7 @@ class _HomeState extends State<Welcome> {
                     .isSignedIn()) { print('//////////');
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) {
-                        return Trial();
+                        return chcktime();
 
                       }));
                 }
@@ -65,10 +68,12 @@ class _HomeState extends State<Welcome> {
                   googleSignIn.signOut();
                 },
                 child: welcomescreenbuttons(
-                  text: 'register ',
+                  text: 'Sign Out ',
                   iconname: FontAwesomeIcons.user,
                 )),
           ),
+          SizedBox(height: 300,),
+          Text('Done.',style: TextStyle(color: Colors.white,fontSize: 30,fontWeight: FontWeight.w900),),
         ],
       ),
     );
